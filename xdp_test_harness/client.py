@@ -15,13 +15,16 @@ def start_client(ctx, target_xdp_case, unittest_args=None):
     # delayed tests.py -- this prevents having to hack the bases of the XDPCase
     # and postpones the evaluation of decorators (e.g. unittest.skipIf), but
     # this is also kinda hacky...
+
     if unittest_args["tests"]:
         suite = unittest.defaultTestLoader.loadTestsFromNames(
-            map(lambda s: "tests." + s, unittest_args["tests"])
+            unittest_args["tests"]
         )
     else:
-        suite = unittest.defaultTestLoader.discover("tests")
+        suite = unittest.defaultTestLoader.discover(".")
+
     runner = unittest.TextTestRunner(verbosity=3)
+
     res = runner.run(suite)
 
     return len(res.failures)
