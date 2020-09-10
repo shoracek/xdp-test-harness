@@ -4,14 +4,6 @@ A test harness that can be used to test the implementation of XDP and XDP
 programs.
 
 
-## Quick start
-
-Run `./run_netns.sh "client test_xdp_filter"`. File `run_netns.sh` starts
-the tests in separate network namespace. File `xdp_filter-exec.sh`
-circumvents xdp-filter looking for the XDP program's file only in active
-directory.
-
-
 ## Requirements
 
 Python 3.5, bcc, Pyroute2, Scapy
@@ -22,15 +14,15 @@ Python 3.5, bcc, Pyroute2, Scapy
 
 ### Running
 
-To start the test suite, start `./run.py` as a superuser. There are three
-commands that can be used:
+To start the test harness, run `python3 -m xdp_test_harness.runner` in a folder
+containing tests as a superuser. There are three commands that can be used:
 
 ####  `client`
 
-Start a client, running tests using network interfaces to process packets
-by XDP program. One can further specify which tests to run, using
-`unittest`'s format. That is modules, classes and methods separated by
-dots, for example `./run.py client test_general.ReturnValuesBasic`.
+Start a client, running tests using network interfaces to process packets by XDP
+program. One can further specify which tests to run, using `unittest`'s format.
+That is modules, classes and methods separated by dots, for example `python3 -m
+xdp_test_harness.runner client test_general.ReturnValuesBasic`.
 
 ####  `bptr`
 
