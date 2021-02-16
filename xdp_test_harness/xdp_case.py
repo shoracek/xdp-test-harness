@@ -339,7 +339,7 @@ class XDPCaseNetwork(XDPCase):
         ctx = cls.get_contexts()
         for i in range(ctx.server_count()):
             try:
-                conn = cls.__connect(ctx.comms[i], 20)
+                conn = cls.__connect(ctx.comms[i], 100)
                 conn.send((utils.ServerCommand.INTRODUCE, ))
                 remote = conn.recv()
                 # Custom context is prefered.
