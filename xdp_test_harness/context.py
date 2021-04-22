@@ -2,7 +2,6 @@ import dataclasses
 from typing import (Optional, Iterable)
 
 import pyroute2
-from scapy.all import AsyncSniffer, L2ListenSocket
 
 from . utils import XDPFlag
 

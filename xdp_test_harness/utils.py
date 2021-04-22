@@ -3,7 +3,8 @@ import subprocess
 import atexit
 import threading
 
-from scapy.all import AsyncSniffer, L2ListenSocket
+from scapy.all import AsyncSniffer
+from scapy.arch.linux import L2ListenSocket
 import pyroute2
 
 
