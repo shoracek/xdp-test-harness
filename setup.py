@@ -6,7 +6,7 @@ with open("README.md") as file:
 
 setuptools.setup(
     name="xdp-test-harness",
-    version="0.1.3",
+    version="0.1.4",
     author="Štěpán Horáček",
     author_email="shoracek@redhat.com",
     description="Test harness for testing XDP programs.",

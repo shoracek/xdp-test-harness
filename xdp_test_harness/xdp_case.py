@@ -339,7 +339,7 @@ class XDPCaseNetwork(XDPCase):
         ctx = cls.get_contexts()
         for i in range(ctx.server_count()):
             try:
-                conn = cls.__connect(ctx.comms[i], 100)
+                conn = cls.__connect(ctx.comms[i], 1000)
                 conn.send((utils.ServerCommand.INTRODUCE, ))
                 remote = conn.recv()
                 # Custom context is prefered.
@@ -389,6 +389,8 @@ class XDPCaseNetwork(XDPCase):
         if response != utils.ServerResponse.FINISHED:
             self.fail(
                 "Unexpected situation while sending packets: " + str(response))
+
+        time.sleep(0.1)
 
         server_results = []
         for conn in conn_list:
